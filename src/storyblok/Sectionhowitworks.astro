@@ -1,0 +1,28 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<section
+  {...storyblokEditable(blok)}
+  class="relative bg-indigo-800 flex flex-row item-end p-16 gap-16"
+>
+  <img src={blok.image_financial_overview?.filename} alt={blok.image_financial_overview?.alt }>
+  <div>
+      <h1 class="relative text-5xl font-serif">{blok.headline_how_it_works}</h1>
+      <h2 class="relative text-3xl">{blok.text_financial_overview}</h2>
+      <p class="relative text-3xl grid grid-cols-1">{blok.list_financial_overview}</p>
+  </div>
+</section>
+
+<section 
+  {...storyblokEditable(blok)}
+  class="relative bg-indigo-800 flex flex-row item-end p-8 gap-8"
+>
+  <div>
+    <h1 class="relative text-5xl font-serif">{blok.headline_transfer_overview}</h1>
+    <h2 class="relative text-3xl">{blok.text_transfer_overview}</h2>
+  </div>
+  <img src={blok.image_transfer_overview?.filename} alt={blok.image_transfer_overview?.alt }>
+</section>

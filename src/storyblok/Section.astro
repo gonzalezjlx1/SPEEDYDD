@@ -1,0 +1,20 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<section
+  {...storyblokEditable(blok)}
+  class="relative bg-indigo-700 flex flex-row items-center justify-around p-16 gap-16"
+>
+  
+  <div>
+      <h1 class="relative text-6xl font-serif">{blok.headline}</h1>
+      <h2 class="relative text-3xl font-serif">{blok.text}</h2>
+      <!-- <h1>{blok.text1}</h1>  -->
+  </div>
+
+  <img src={blok.image?.filename} alt={blok.image?.alt }>
+
+</section>

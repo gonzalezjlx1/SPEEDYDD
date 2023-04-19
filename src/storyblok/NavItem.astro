@@ -1,0 +1,17 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props
+console.log(blok)
+
+const HandleHomeRedirection = (url) => {
+    if(url === "home"){
+        return ""
+    }
+    return url;
+}
+---
+
+<div {...storyblokEditable(blok)}>
+    <a class="text-lg" href={HandleHomeRedirection(blok.link.cached_url)}>{blok.label}</a>
+</div>

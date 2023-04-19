@@ -1,0 +1,57 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import NavItem from "./NavItem.astro";
+import ButtonItem from "./ButtonItem.astro";
+
+const { blok } = Astro.props;
+---
+
+<section {...storyblokEditable(blok)} class="bg-navbarBg flex justify-between items-center py-4 px-8 gap-8">
+    
+    <div class="logo" >
+      <img  src={blok.logo?.filename} alt={blok.logo?.alt}>
+    </div>
+
+    <div class="text-white flex gap-10 items-center">
+    {
+      blok.nav_link?.map((blok) => {
+        return <NavItem blok={blok} />
+      })
+    }
+    </div>
+    <div class="text-white flex gap-10 items-center">
+      {
+        blok.button_link?.map((blok) => {
+          return <ButtonItem blok={blok} />
+        })
+      }
+      </div>
+
+    <!-- <nav>
+      <ul class="bg-indigo-900 flex flex-row item-end p-8 gap-8 text-white">
+        <li id="home"><a  href="#">{blok.home}</a></li>
+        <MenuLink />
+      </ul>
+    </nav>
+    
+    <nav>
+      <ul class="bg-indigo-900 flex flex-row item-end p-8 gap-8 text-white">
+        <li id="home"><a  href="#">{blok.home}</a></li>
+        <label for="home">HOME</label>
+        <li><a href="#">{blok.pricing}</a></li>
+        <li><a href="#">{blok.product}</a></li>
+        <li><a href="#">{blok.contact}</a></li>
+      </ul>
+    </nav> 
+    <div class="flex gap-8 text-white">
+      <button class="login">{blok.login}</button>
+      <button class="start-demo">{blok.start_demo}</button>
+    </div> -->
+
+</section>
+
+<style>
+  /* styles for the header */
+</style>
+
+
